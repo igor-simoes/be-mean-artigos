@@ -41,9 +41,6 @@ No exemplo 2, se não houvesse o hoisting ocasionaria em erro, mas o que ocorre 
 3. Execuções: neste caso, return msg é executado por último
 
 ##Closure
-```
-Explique o que é, o porquê acontece e como usar. Cite situações que você usaria.
-```
 Closures são funções internas que têm acesso as variáveis de uma função exterior, sejam elas do próprio escopo, de funções exteriores(incluindo os parâmetros da função) ou variáveis globais [2].
 
 ```javascript
@@ -78,9 +75,23 @@ function meuNome(nome) {
 meuNome("Igor").getNome();
 ```
 ##Variável Global
+Variáveis globais são as variáveis que são declaradas fora de funções, ou seja, enquanto as variáveis locais declaradas em funções são removidas ao fim da execução do bloco da função, as globais permanecem durante toda a aplicação e podem ser acessadas por todos os escopos, segue o exemplo:
+```javascript
+//exemplo 5
+//saida : 20 10 5 ReferenceError: z is not defined
+var x = 10;
+y = 5;
+function soma(){
+    var z = 5;
+    return x+y+z;
+}
+soma();
+console.log(x);
+console.log(y);
+console.log(z);
 ```
-Explique como se usa uma var Global dentro de uma função.
-```
+No exemplo 5, a soma ocorreu normalmente resultando em 20 (x+y+z) e as variáveis globais (x e y) permanecem ativa no escopo, enquanto a variável local z, foi removida ao fim da execução da função.
+
 ##Variável por parâmetro
 ```
 Explique o que acontece dentro da função qnd um parâmetro é passado e também explique quando uma GLOBAL é passada por parâmetro.
