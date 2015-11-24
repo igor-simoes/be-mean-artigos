@@ -93,9 +93,26 @@ console.log(z);
 No exemplo 5, a soma ocorreu normalmente resultando em 20 (x+y+z) e as variáveis globais (x e y) permanecem ativa no escopo, enquanto a variável local z, foi removida ao fim da execução da função.
 
 ##Variável por parâmetro
+Podemos usar variáveis locais e globais nas funções em javascript. Uma variável local é passada para uma função em forma de parâmetro, essa variável só estará disponível no escopo até o fim da execução da função, exemplo:
+```javascript
+//exemplo 6
+function soma(x,y){
+    return x+y;
+}
+soma(1,2); //saida : 3
+console.log(x); //saida: ReferenceError: x is not defined
 ```
-Explique o que acontece dentro da função qnd um parâmetro é passado e também explique quando uma GLOBAL é passada por parâmetro.
+Variáveis globais também podem ser utilizadas como parâmetro seguindo o mesmo conceito, porém seria como criar uma variavel local dentro do escopo da função referenciando o valor da variável global, segue o exemplo:
+```javascript
+//exemplo 7
+//saida : 10
+var z = 10; //inicialização da variável global
+function soma(x){
+    console.log(x);
+}
+soma(z); //variável global como parâmetro
 ```
+
 ##Instanciação usando uma IIFE
 ```
 Explique como uma variável pode receber um valor de uma IIFE. Explique como passar uma variável por parâmetro para a IIFE e acontece com ela dentro da função.
