@@ -114,12 +114,31 @@ soma(z); //variável global como parâmetro
 ```
 
 ##Instanciação usando uma IIFE
+O termo IIFE significa “Immediately-invoked function expression”, mas podemos chamá-lo de função imediata [4], ou seja, a função é imediatamente executada depois de ser criada e segue este padrão:
+```javascript
+(function()
+    {
+        //bloco a ser executado imediatamente
+    })();
 ```
-Explique como uma variável pode receber um valor de uma IIFE. Explique como passar uma variável por parâmetro para a IIFE e acontece com ela dentro da função.
+As funções IIFE se diferenciam das outras funções pois são executadas apenas uma vez, enquanto as outras funções podemos invoca-las quantas vezes quisermos e em qualquer lugar do código.
+Podemos passar variáveis por parâmetro para nossa IIFE, segue o exemplo:
+```javascript
+//exemplo 7
+//saida : "Igor Simões" "Igor"
+var nome = "Igor";
+(function(nome){
+    nome = "Igor Simões";
+    console.log(nome);
+})(nome);
+console.log(nome);
 ```
+No exemplo 7, temos uma variável global chamada nome que é passada como parâmetro para a nossa IIFE. Veja que ela é uma variável global e que está sendo modificada dentro do escopo IIFE, porém é mantida o mesmo valor fora da função, ou seja, ela só é alterada localmente na função IIFE.
+
 
 ## Referências
 
 [1] http://wenndersantos.net/2014/12/javascript-hoisting/
 [2] http://javascriptbrasil.com/2013/10/12/entenda-closures-no-javascript-com-facilidade/
 [3] https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Closures
+[4]http://imasters.com.br/front-end/javascript/sobre-funcoes-imediatas-javascript-iife/
